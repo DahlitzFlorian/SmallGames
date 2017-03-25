@@ -3,6 +3,7 @@
 Program including small games to play.
 
 Developer: Florian Dahlitz
+
 version 0.1
 
 ## Included Games
