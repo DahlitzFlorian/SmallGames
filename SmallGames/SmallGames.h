@@ -77,7 +77,7 @@ namespace ISmallGames
 
 	//-------------------------------------------
 
-		std::string getRandomKey(std::map<unsigned int, std::string> wordlist);
+		std::string getRandomWord(std::map<unsigned int, std::string> wordlist);
 
 	//-------------------------------------------
 

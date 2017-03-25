@@ -8,7 +8,7 @@
 void ISmallGames::HangingMan::setupGame()
 {
 	wordlist = getWordlist();
-	word = getRandomKey(wordlist);
+	word = getRandomWord(wordlist);
 	userWord = "_";
 
 	for (unsigned int i = 0; i < word.size() - 1; ++i)
@@ -57,13 +57,18 @@ std::map<unsigned int, std::string> ISmallGames::HangingMan::getWordlist()
 	return wordlist;
 }
 
-std::string ISmallGames::HangingMan::getRandomKey(std::map<unsigned int, std::string> wordlist)
+std::string ISmallGames::HangingMan::getRandomWord(std::map<unsigned int, std::string> wordlist)
 {
+	std::string randomWord;
 	auto iter = wordlist.begin();
+
 	srand(time(NULL));
 	std::advance(iter, rand() % wordlist.size());
+	randomWord = iter->second;
+
+	wordlist.erase(iter);
 	
-	return iter->second;
+	return randomWord;
 }
 
 void ISmallGames::HangingMan::playGame()
