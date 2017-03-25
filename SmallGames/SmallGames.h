@@ -22,6 +22,7 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 using std::time;
+using std::toupper;
 
 namespace ISmallGames
 {
@@ -121,6 +122,10 @@ namespace ISmallGames
 	//-------------------------------------------
 
 		char getUserChar();
+
+	//-------------------------------------------
+
+		void addToUserWord(char userChar, std::size_t found);
 
 	//-------------------------------------------
 	};
