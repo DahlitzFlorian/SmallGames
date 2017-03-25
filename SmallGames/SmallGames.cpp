@@ -81,8 +81,11 @@ void ISmallGames::HangingMan::playGame()
 char ISmallGames::HangingMan::getUserChar()
 {
 	char userChar;
-	std::cout << "Type in a character: ";
-	std::cin >> userChar;
-	// TODO: check if char was already taken
+
+	do {
+		std::cout << "Type in a character: ";
+		std::cin >> userChar;
+	} while (usedChars.count(userChar) != 1 && allowedChars.count(userChar) == 1);
+
 	return userChar;
 }
