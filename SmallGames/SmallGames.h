@@ -30,23 +30,56 @@ namespace ISmallGames
 		const int m_hangingMan = 11;
 		const std::string m_path;
 
-	//-------------------------------------------
+		//-------------------------------------------
 
 	public:
 		HangingMan(std::string path)
 			: m_efforts(0),
-			  m_path("C:\\Users\\Florian\\Documents\\Workspace\\C++\\PlaySmallGames\\Debug\\" + path)
-		{ 
-			setupGame(); 
+			m_path("C:\\Users\\Florian\\Documents\\Workspace\\C++\\PlaySmallGames\\Debug\\" + path)
+		{
+			setupGame();
 		};
 
-	//-------------------------------------------
+		//-------------------------------------------
 
 	private:
 		const int manHeight[7] = { 0,4,9,9,9,11,11 };
 		std::map<unsigned int, std::string> wordlist;
 		std::string word;
 		std::string userWord;
+		std::map<char, char> usedChars;
+
+	//-------------------------------------------
+
+		const std::map<char, char> allowedChars 
+		{
+			{ 'A', 'A' },
+			{ 'B', 'B' },
+			{ 'C', 'C' },
+			{ 'D', 'D' },
+			{ 'E', 'E' },
+			{ 'F', 'F' },
+			{ 'G', 'G' },
+			{ 'H', 'H' },
+			{ 'I', 'I' },
+			{ 'J', 'J' },
+			{ 'K', 'K' },
+			{ 'L', 'L' },
+			{ 'M', 'M' },
+			{ 'N', 'N' },
+			{ 'O', 'O' },
+			{ 'P', 'P' },
+			{ 'Q', 'Q' },
+			{ 'R', 'R' },
+			{ 'S', 'S' },
+			{ 'T', 'T' },
+			{ 'U', 'U' },
+			{ 'V', 'V' },
+			{ 'W', 'W' },
+			{ 'X', 'X' },
+			{ 'Y', 'Y' },
+			{ 'Z', 'Z' }
+		};
 
 	//-------------------------------------------
 
