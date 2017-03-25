@@ -85,6 +85,7 @@ char ISmallGames::HangingMan::getUserChar()
 	do {
 		std::cout << "Type in a character: ";
 		std::cin >> userChar;
+		userChar = toupper(userChar);
 	} while (usedChars.count(userChar) != 1 && allowedChars.count(userChar) == 1);
 
 	return userChar;

@@ -15,6 +15,7 @@
 #include <fstream>	// std::ifstream
 #include <iterator>	// iterator in wordlist
 #include <ctime>	// time() in srand()
+#include <locale>	// toupper()
 
 using std::string;
 using std::cout;
@@ -38,6 +39,7 @@ namespace ISmallGames
 			m_path("C:\\Users\\Florian\\Documents\\Workspace\\C++\\PlaySmallGames\\Debug\\" + path)
 		{
 			setupGame();
+			playGame();
 		};
 
 		//-------------------------------------------
@@ -102,6 +104,10 @@ namespace ISmallGames
 
 	//-------------------------------------------
 
+		SMALLGAMES_API void playGame();
+
+	//-------------------------------------------
+
 		void buildWindow();
 
 	//-------------------------------------------
@@ -111,10 +117,6 @@ namespace ISmallGames
 	//-------------------------------------------
 
 		std::string getRandomWord(std::map<unsigned int, std::string> wordlist);
-
-	//-------------------------------------------
-
-		void playGame();
 
 	//-------------------------------------------
 
