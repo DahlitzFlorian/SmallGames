@@ -1,5 +1,6 @@
 // SmallGames.cpp : Definiert die exportierten Funktionen für die DLL-Anwendung.
 // @author Florian Dahlitz
+// test comment
 
 #include "stdafx.h"
 
