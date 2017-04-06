@@ -16,6 +16,7 @@
 #include <iterator>	// iterator in wordlist
 #include <ctime>	// time() in srand()
 #include <locale>	// toupper()
+#include <boost/algorithm/string.hpp>	// to_upper()
 
 using std::string;
 using std::cout;
@@ -23,6 +24,7 @@ using std::endl;
 using std::ifstream;
 using std::time;
 using std::toupper;
+using boost::to_upper;
 
 namespace ISmallGames
 {
@@ -125,7 +127,7 @@ namespace ISmallGames
 
 	//-------------------------------------------
 
-		void addToUserWord(char userChar, std::size_t found);
+		void addToUserWord(char userChar);
 
 	//-------------------------------------------
 	};

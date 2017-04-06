@@ -9,6 +9,7 @@ void ISmallGames::HangingMan::setupGame()
 {
 	wordlist = getWordlist();
 	word = getRandomWord(wordlist);
+	boost::to_upper(word);
 	userWord = "_";
 
 	for (unsigned int i = 0; i < word.size() - 1; ++i)
@@ -35,7 +36,7 @@ void ISmallGames::HangingMan::buildWindow()
 	for (int i = 0; i < userWord.length(); i++)
 		std::cout << userWord[i] << " ";
 
-	std::cout << userWord << " --- " << word << std::endl; // clean buffer
+	std::cout << std::endl; // clean buffer
 
 	return;
 }
@@ -78,12 +79,7 @@ void ISmallGames::HangingMan::playGame()
 		buildWindow();
 
 		char userChar = getUserChar();
-		std::size_t found = word.find(userChar);
-
-		if (found != std::string::npos)
-			addToUserWord(userChar, found);
-		else
-			m_efforts++;
+		addToUserWord(userChar);
 
 	} while (!(userWord.compare(word)) || (m_efforts != 6));
 
@@ -105,10 +101,12 @@ char ISmallGames::HangingMan::getUserChar()
 	return userChar;
 }
 
-void ISmallGames::HangingMan::addToUserWord(char userChar, std::size_t found)
+void ISmallGames::HangingMan::addToUserWord(char userChar)
 {
-	userWord[found] = userChar;
-	found = word.find(userChar, found+1);
+	size_t found = word.find(userChar);
+	
+	if (found == std::string::npos)
+		m_efforts++;
 
 	while (found != std::string::npos)
 	{
