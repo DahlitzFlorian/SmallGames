@@ -81,7 +81,7 @@ void ISmallGames::HangingMan::playGame()
 		char userChar = getUserChar();
 		addToUserWord(userChar);
 
-	} while (!(userWord.compare(word)) || (m_efforts != 6));
+	} while (userWord.compare(word) && (m_efforts != 6));
 
 	return;
 }
