@@ -53,7 +53,7 @@ std::map<unsigned int, std::string> ISmallGames::HangingMan::getWordlist()
 	return wordlist;
 }
 
-std::string ISmallGames::HangingMan::getRandomWord(std::map<unsigned int, std::string> wordlist)
+std::string ISmallGames::HangingMan::getRandomWord()
 {
 	std::string randomWord;
 	auto iter = wordlist.begin();
@@ -71,7 +71,7 @@ void ISmallGames::HangingMan::playGame()
 {
 	usedChars.clear();
 	m_efforts = 0;
-	word = getRandomWord(wordlist);
+	word = getRandomWord();
 	boost::to_upper(word);
 	userWord = "_";
 

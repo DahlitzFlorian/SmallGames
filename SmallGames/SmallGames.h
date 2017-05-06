@@ -119,7 +119,7 @@ namespace ISmallGames
 
 	//-------------------------------------------
 
-		std::string getRandomWord(std::map<unsigned int, std::string> wordlist);
+		std::string getRandomWord();
 
 	//-------------------------------------------
 
