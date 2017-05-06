@@ -8,12 +8,6 @@
 void ISmallGames::HangingMan::setupGame()
 {
 	wordlist = getWordlist();
-	word = getRandomWord(wordlist);
-	boost::to_upper(word);
-	userWord = "_";
-
-	for (unsigned int i = 0; i < word.size() - 1; ++i)
-		userWord += "_";
 
 	return;
 }
@@ -75,6 +69,15 @@ std::string ISmallGames::HangingMan::getRandomWord(std::map<unsigned int, std::s
 
 void ISmallGames::HangingMan::playGame()
 {
+	usedChars.clear();
+	m_efforts = 0;
+	word = getRandomWord(wordlist);
+	boost::to_upper(word);
+	userWord = "_";
+
+	for (unsigned int i = 0; i < word.size() - 1; ++i)
+		userWord += "_";
+
 	do {
 		buildWindow();
 
@@ -85,6 +88,18 @@ void ISmallGames::HangingMan::playGame()
 
 	// reload to add last char to display
 	buildWindow();
+
+	// ask for another word from wordlist
+	if (!wordlist.empty())
+	{
+		char userInput;
+		std::cout << "Wonna get another word from list? (J/N): ";
+		std::cin >> userInput;
+		userInput = toupper(userInput);
+
+		if (userInput == 'J')
+			playGame();
+	}
 
 	return;
 }
