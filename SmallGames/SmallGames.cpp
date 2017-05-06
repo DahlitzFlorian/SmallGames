@@ -7,7 +7,12 @@
 
 void ISmallGames::HangingMan::setupGame()
 {
-	wordlist = getWordlist();
+	std::string file_path;
+	std::cout << "Type in wordlistname: ";
+	std::cin >> file_path;
+	file_path = full_path + file_path + ".txt";
+
+	wordlist = getWordlist(file_path);
 
 	return;
 }
@@ -35,14 +40,14 @@ void ISmallGames::HangingMan::buildWindow()
 	return;
 }
 
-std::map<unsigned int, std::string> ISmallGames::HangingMan::getWordlist()
+std::map<unsigned int, std::string> ISmallGames::HangingMan::getWordlist(std::string file_path)
 {
 	unsigned int i = 0;
 	std::string strWord;
 	std::map<unsigned int, std::string> wordlist;
-	std::ifstream worldlistFile(m_path);
+	std::ifstream worldlistFile(file_path);
 	if (worldlistFile.fail())
-		std::cout << m_path << std::endl;
+		std::cout << file_path << std::endl;
 	// TODO: change reading file w/ vectors -> read something about
 	while (std::getline(worldlistFile, strWord))
 	{
@@ -93,12 +98,25 @@ void ISmallGames::HangingMan::playGame()
 	if (!wordlist.empty())
 	{
 		char userInput;
-		std::cout << "Wonna get another word from list? (J/N): ";
+		std::cout << "Wonna get another word from list? (Y/N): ";
 		std::cin >> userInput;
 		userInput = toupper(userInput);
 
-		if (userInput == 'J')
+		if (userInput == 'Y')
 			playGame();
+	}
+	else
+	{
+		char userInput;
+		std::cout << "Wonna load another wordlist? (Y/N): ";
+		std::cin >> userInput;
+		userInput = toupper(userInput);
+
+		if (userInput == 'Y')
+		{
+			setupGame();
+			playGame();
+		}
 	}
 
 	return;

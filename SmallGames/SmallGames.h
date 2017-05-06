@@ -32,14 +32,12 @@ namespace ISmallGames
 	{
 		unsigned int m_efforts;
 		const int m_hangingMan = 11;
-		const std::string m_path;
+		const std::string full_path = "C:\\Users\\Florian\\Documents\\Workspace\\C++\\PlaySmallGames\\Debug\\wordlists\\";
 
 		//-------------------------------------------
 
 	public:
-		HangingMan(std::string path)
-			: m_efforts(0),
-			m_path("C:\\Users\\Florian\\Documents\\Workspace\\C++\\PlaySmallGames\\Debug\\" + path)
+		HangingMan()
 		{
 			setupGame();
 			playGame();
@@ -115,7 +113,7 @@ namespace ISmallGames
 
 	//-------------------------------------------
 
-		std::map<unsigned int, std::string> getWordlist();
+		std::map<unsigned int, std::string> getWordlist(std::string file_path);
 
 	//-------------------------------------------
 
