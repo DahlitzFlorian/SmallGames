@@ -83,6 +83,9 @@ void ISmallGames::HangingMan::playGame()
 
 	} while (userWord.compare(word) && (m_efforts != 6));
 
+	// reload to add last char to display
+	buildWindow();
+
 	return;
 }
 
